@@ -1,11 +1,17 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import Login from './src/lib/facebook/authentication';
+import { message } from './src/lib/wit/message';
 
 export default function App() {
+  async function getData() {
+    const request = await message('I am 20 years old');
+    const data = await request.json();
+    console.warn(data);
+  };
+  getData();
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
       <Login />
     </View>
   );

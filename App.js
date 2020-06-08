@@ -7,7 +7,7 @@ export default function App() {
   async function getData() {
     const request = await message('I am 20 years old');
     const data = await request.json();
-    console.warn(data);
+    console.warn('WIT response', data);
   };
   getData();
   return (

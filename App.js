@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Alert, TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import Login from './src/lib/facebook/authentication';
 import { message } from './src/lib/wit/message';
 
@@ -9,10 +9,13 @@ export default function App() {
     const data = await request.json();
     console.warn('WIT response', data);
   };
-  getData();
   return (
     <View style={styles.container}>
       <Login />
+      <TouchableOpacity
+        onPress={getData}>
+        <Text>press here to send /message to wit.ai</Text>
+      </TouchableOpacity>
     </View>
   );
 }

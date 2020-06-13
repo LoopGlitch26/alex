@@ -6,8 +6,8 @@ export default class Microphone extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      recognized: '',
-      started: '',
+      recognized: false,
+      started: false,
       results: [],
     };
     Voice.onSpeechStart = this.onSpeechStart.bind(this);
@@ -21,13 +21,13 @@ export default class Microphone extends React.Component {
 
   onSpeechStart(e) {
     this.setState({
-      started: '√',
+      started: true,
     });
   };
 
   onSpeechRecognized(e) {
     this.setState({
-      recognized: '√',
+      recognized: true,
     });
   };
 
@@ -40,8 +40,8 @@ export default class Microphone extends React.Component {
 
   async _startRecognition(e) {
     this.setState({
-      recognized: '',
-      started: '',
+      recognized: false,
+      started: true,
       results: [],
     });
     try {

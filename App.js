@@ -1,20 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import Login from './src/lib/facebook/authentication';
-import { message } from './src/lib/wit/message';
+import Login from './src/components/Login';
+import Microphone from './src/components/Microphone';
 
-export default function App() {
-  async function getData() {
-    const request = await message('I am 20 years old');
-    const data = await request.json();
-    console.warn('WIT response', data);
-  };
-  getData();
-  return (
-    <View style={styles.container}>
-      <Login />
-    </View>
-  );
+class App extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Login />
+        <Microphone />
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -25,3 +22,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
